@@ -9,7 +9,13 @@
       <dd><%= @thing.name %></dd>
 
       <dt>User</dt>
-      <dd><%= @thing.user_id %></dd>
+      <dd>
+        <% if @thing.user.present? %>
+          <a href="/users/<%= @thing.user_id %>">
+            <%= @thing.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
