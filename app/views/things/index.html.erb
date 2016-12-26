@@ -17,7 +17,7 @@
       <% @things.each do |thing| %>
       <tr>
         <td><%= thing.name %></td>
-        <td><%= thing.user_id %></td>
+        <td><%= thing.user.email %></td>
         <td>
           <a href="/things/<%= thing.id %>" class="btn btn-primary">Show</a>
           <a href="/things/<%= thing.id %>/edit" class="btn btn-warning">Edit</a>
