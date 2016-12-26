@@ -10,7 +10,8 @@ class ThingsController < ApplicationController
   end
 
   def index
-    @things = Thing.page(params[:page]).per(10)
+    @q = Thing.ransack(params[:q])
+    @things = @q.result(:distinct => true).includes(:user).page(params[:page]).per(10)
 
     render("things/index.html.erb")
   end
