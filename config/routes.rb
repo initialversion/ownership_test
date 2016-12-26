@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "things#index"
   # Routes for the Thing resource:
   # CREATE
   get "/things/new", :controller => "things", :action => "new"
