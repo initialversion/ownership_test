@@ -1,4 +1,14 @@
 class ThingsController < ApplicationController
+  before_action :current_user_must_be_thing_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_thing_user
+    thing = Thing.find(params[:id])
+
+    unless current_user == thing.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @things = Thing.all
 
